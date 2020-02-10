@@ -1,3 +1,11 @@
 type Query {
-    hello: String!
+  hello: String!
+}
+
+type Person {
+  firstName: String!
+  lastName: String!
+  age: Int!
+
+  fullName: String!
 }
