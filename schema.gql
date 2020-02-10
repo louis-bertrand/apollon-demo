@@ -1,11 +1,17 @@
 type Query {
   persons: [Person]!
   person(id: ID!): Person!
+
+  posts: [Post]!
+  post: Post!
 }
 
 type Mutation {
   person_add(firstName: String!, lastName: String!, age: Int!): Person!
   person_remove(id: ID!): Person!
+
+  post_add(name: String!, authors: [ID!]): Post!
+  post_remove(id: ID!): Post!
 }
 
 type Person {
@@ -15,4 +21,13 @@ type Person {
   age: Int!
 
   fullName: String!
+
+  posts: [Post]!
+}
+
+type Post {
+  id: ID!
+  name: String!
+
+  authors: [Person]!
 }
