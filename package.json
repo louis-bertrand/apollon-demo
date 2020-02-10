@@ -1,0 +1,20 @@
+{
+  "name": "apollon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "build": "env APOLLON_ENV='BUILD' node index.js",
+    "prod": "env APOLLON_ENV='PROD' node index.js",
+    "dev": "env LOG_LEVEL='TRACE' node index.js | bunyan",
+    "nodemon": "env LOG_LEVEL='TRACE' nodemon -e js,mjs,cjs,gql,yaml,json ./index.js | bunyan"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@lymeodev/apollon": "^2.0.0",
+    "lowdb": "^1.0.0"
+  }
+}
