@@ -23,6 +23,11 @@ export default async function() {
   function generateFullName(root, params, context) {
     return root.firstName + " " + root.lastName;
   }
+  function personGetPosts({ id }, params, { connectors: { localDB } }) {
+    return localDB.find(localDB._types.POSTS, post =>
+      post.authors.includes(id)
+    );
+  }
 
   // Schema linking
   this.Query.persons = getPersons;
@@ -33,4 +38,5 @@ export default async function() {
 
   this.Person = {};
   this.Person.fullName = generateFullName;
+  this.Person.posts = personGetPosts;
 }

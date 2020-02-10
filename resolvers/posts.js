@@ -15,6 +15,11 @@ export default async function() {
     return localDB.remove(localDB._types.POSTS, id);
   }
 
+  //Field implementations
+  function postAuthors({ authors }, params, { connectors: { localDB } }) {
+    return authors.map(author => localDB.get(localDB._types.USERS, author));
+  }
+
   // Schema linking
   this.Query.posts = getPosts;
   this.Query.post = getPost;
@@ -23,4 +28,5 @@ export default async function() {
   this.Mutation.post_remove = removePost;
 
   this.Post = {};
+  this.Post.authors = postAuthors;
 }
