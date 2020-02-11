@@ -3,7 +3,7 @@ type Query {
   person(id: ID!): Person!
 
   posts: [Post]!
-  post: Post!
+  post(id: ID!): Post!
 }
 
 type Mutation {
@@ -21,13 +21,9 @@ type Person {
   age: Int!
 
   fullName: String!
-
-  posts: [Post]!
 }
 
 type Post {
   id: ID!
   name: String!
-
-  authors: [Person]!
 }

@@ -23,6 +23,12 @@ export default async function localDB() {
         .getById(id)
         .value();
     },
+    find(type, match) {
+      return db
+        .get(type)
+        .filter(match)
+        .value();
+    },
     add(type, data) {
       return db
         .get(type)
