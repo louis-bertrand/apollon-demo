@@ -1,4 +1,8 @@
-export default async function(){
-    
-    this.Query.hello = _ => "Hello world"
+export default async function() {
+  
+  function helloResolver() {
+    return "Hello world";
+  }
+
+  this.Query.hello = helloResolver;
 }
